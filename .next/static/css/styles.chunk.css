@@ -4405,6 +4405,9 @@ h4 {
 .cards.active img {
   opacity: 1;
 }
+h4 {
+  text-align: center;
+}
 
 .button {
   display: flex;
