@@ -4345,6 +4345,7 @@ body {
   margin: 0;
   padding: 0 0 100px 0;
   font-family: sans-serif;
+  overflow-x: hidden;
 }
 
 /* Card */
@@ -4394,7 +4395,7 @@ ul li {
   box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   outline: 0ex;
   background-color: white;
-  border-top-color: crimson;
+  border-top-color: #24a3d8;
 }
 h4 {
   transition: all 3s 1s;
