@@ -320,7 +320,7 @@ var App = function App() {
     };
   }, []);
   return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-    className: "container",
+    className: "container-fluid",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 41

@@ -38,7 +38,7 @@ const App = () => {
   }, []);
 
   return (
-    <div className="container">
+    <div className="container-fluid">
       <Button
         handleClick={goToNextSlide}
         disabled={
