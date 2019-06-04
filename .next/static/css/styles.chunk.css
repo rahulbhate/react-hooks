@@ -4399,6 +4399,12 @@ ul li {
 h4 {
   transition: all 3s 1s;
 }
+.cards img {
+  opacity: 0.5;
+}
+.cards.active img {
+  opacity: 1;
+}
 
 .button {
   display: flex;

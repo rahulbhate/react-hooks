@@ -2052,7 +2052,7 @@ var Card = function Card(_ref) {
 
 /***/ }),
 
-/***/ 1:
+/***/ 0:
 /*!**********************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=C%3A%5CUsers%5Crbhate%5Cprojects%5Creact-hooks%5Cpages%5Cindex.js ***!
   \**********************************************************************************************************************************/
@@ -2075,5 +2075,5 @@ module.exports = dll_6dc2816e14fab51b8269;
 
 /***/ })
 
-},[[1,"static/runtime/webpack.js","styles"]]]);
+},[[0,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=index.js.map
