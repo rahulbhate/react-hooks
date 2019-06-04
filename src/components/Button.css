@@ -1,0 +1,25 @@
+.button {
+  display: flex;
+  height: 2em;
+  width: 100px;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  font-weight: lighter;
+  font-size: 1.4em;
+  color: white;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  border-radius: 5%;
+  border-color: #dc3545;
+  cursor: pointer;
+}
+.secondary {
+  background-color: #24a3d8;
+}
+.primary {
+  background-color: #6fc400;
+}
+.disabled {
+  pointer-events: none;
+  background-color: #cccccc;
+}
