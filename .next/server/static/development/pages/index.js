@@ -280,8 +280,8 @@ var _jsxFileName = "C:\\Users\\rbhate\\projects\\react-hooks\\pages\\index.js";
 var App = function App() {
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(null),
       _useState2 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState, 2),
-      data = _useState2[0],
-      setData = _useState2[1];
+      properties = _useState2[0],
+      setproperties = _useState2[1];
 
   var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(null),
       _useState4 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState3, 2),
@@ -295,14 +295,12 @@ var App = function App() {
 
   function goToPrevSlide() {
     var newIndex = [property.index - 1];
-    setProperty(data[newIndex]);
-    console.log(data, property);
+    setProperty(properties[newIndex]);
   }
 
   function goToNextSlide() {
     var newIndex = [property.index + 1];
-    setProperty(data[newIndex]);
-    console.log(data, property, isLoading, property.index, data.length);
+    setProperty(properties[newIndex]);
   }
 
   Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
@@ -312,38 +310,36 @@ var App = function App() {
     }, 4000);
 
     function callback() {
-      setData(_src_PropertiesData__WEBPACK_IMPORTED_MODULE_2__["default"]);
+      setproperties(_src_PropertiesData__WEBPACK_IMPORTED_MODULE_2__["default"]);
       setProperty(_src_PropertiesData__WEBPACK_IMPORTED_MODULE_2__["default"][0]);
       setIsLoading(false);
-      console.log(isLoading);
     }
 
     return function () {
       clearTimeout(timeOut);
-      console.log('cleanup');
     };
   }, []);
   return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "container",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45
+      lineNumber: 41
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_src_components_Button__WEBPACK_IMPORTED_MODULE_7__["default"], {
     handleClick: goToNextSlide,
-    disabled: !isLoading && property.index === data.length - 1 ? true : false,
+    disabled: !isLoading && property.index === properties.length - 1 ? true : false,
     type: "primary",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46
+      lineNumber: 42
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("i", {
     class: "fas fa-chevron-right fa-lg",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 53
+      lineNumber: 49
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_src_components_Button__WEBPACK_IMPORTED_MODULE_7__["default"], {
@@ -352,52 +348,52 @@ var App = function App() {
     type: "secondary",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 55
+      lineNumber: 51
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("i", {
     class: "fas fa-chevron-left fa-lg",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 60
+      lineNumber: 56
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62
+      lineNumber: 58
     },
     __self: this
   }, isLoading ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h4", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64
+      lineNumber: 60
     },
     __self: this
   }, "Loading...") : react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-    className: "".concat(property.index, " ? active: : deactive"),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66
+      lineNumber: 62
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "cards-slider-wrapper",
     style: {
-      transform: "translateX(-".concat(property.index * (100 / data.length), "%)")
+      transform: "translateX(-".concat(property.index * (100 / properties.length), "%)")
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 67
+      lineNumber: 63
     },
     __self: this
-  }, data.map(function (property, index) {
+  }, properties.map(function (property_, index) {
     return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_src_components_Card__WEBPACK_IMPORTED_MODULE_6__["default"], {
-      property: property,
-      key: property._id,
+      property: property_,
+      statePropertyIndex: property.index,
+      key: property_._id,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 75
+        lineNumber: 72
       },
       __self: this
     });
@@ -823,7 +819,7 @@ var Button = function Button(props) {
       lineNumber: 4
     },
     __self: this
-  }, props.children, " ", console.log(props));
+  }, props.children);
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Button);
@@ -845,7 +841,8 @@ var _jsxFileName = "C:\\Users\\rbhate\\projects\\react-hooks\\src\\components\\C
 
 
 var Card = function Card(_ref) {
-  var property = _ref.property;
+  var property = _ref.property,
+      statePropertyIndex = _ref.statePropertyIndex;
   var index = property.index,
       picture = property.picture,
       city = property.city,
@@ -855,11 +852,11 @@ var Card = function Card(_ref) {
       carSpaces = property.carSpaces,
       price = property.price;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "cards",
+    className: "cards ".concat(statePropertyIndex === index ? 'active' : 'deactive'),
     id: "card-".concat(index),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13
+      lineNumber: 14
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -870,71 +867,71 @@ var Card = function Card(_ref) {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14
+      lineNumber: 20
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 21
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16
+      lineNumber: 22
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17
+      lineNumber: 23
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     class: "fas fa-bed fa-sm",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18
+      lineNumber: 24
     },
     __self: this
   }), bedrooms), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21
+      lineNumber: 27
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     class: "fas fa-home fa-sm",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22
+      lineNumber: 28
     },
     __self: this
   }), address), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25
+      lineNumber: 31
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     class: "fas fa-restroom fa-sm",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26
+      lineNumber: 32
     },
     __self: this
   }), bathrooms), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29
+      lineNumber: 35
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     class: "fas fa-car fa-sm",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30
+      lineNumber: 36
     },
     __self: this
   }), carSpaces))));

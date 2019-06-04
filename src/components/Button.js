@@ -9,7 +9,7 @@ const Button = (props) => {
       disabled={props.disabled}
       type={props.type}
     >
-      {props.children} {console.log(props)}
+      {props.children}
     </div>
   );
 };

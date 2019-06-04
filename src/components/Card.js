@@ -1,4 +1,4 @@
-const Card = ({ property }) => {
+const Card = ({ property, statePropertyIndex }) => {
   const {
     index,
     picture,
@@ -9,8 +9,14 @@ const Card = ({ property }) => {
     carSpaces,
     price,
   } = property;
+
   return (
-    <div className="cards" id={`card-${index}`}>
+    <div
+      className={`cards ${
+        statePropertyIndex === index ? 'active' : 'deactive'
+      }`}
+      id={`card-${index}`}
+    >
       <img src={picture} alt={city} style={{ width: '100%' }} />
       <div>
         <ul>

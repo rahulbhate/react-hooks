@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import propertiesdata from '../src/PropertiesData';
+import PropertiesData from '../src/PropertiesData';
 import '../css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import '../css/style.css';
@@ -7,18 +7,16 @@ import Card from '../src/components/Card';
 import Button from '../src/components/Button';
 
 const App = () => {
-  const [data, setData] = useState(null);
+  const [properties, setproperties] = useState(null);
   const [property, setProperty] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   function goToPrevSlide() {
     const newIndex = [property.index - 1];
-    setProperty(data[newIndex]);
-    console.log(data, property);
+    setProperty(properties[newIndex]);
   }
   function goToNextSlide() {
     const newIndex = [property.index + 1];
-    setProperty(data[newIndex]);
-    console.log(data, property, isLoading, property.index, data.length);
+    setProperty(properties[newIndex]);
   }
 
   useEffect(() => {
@@ -29,15 +27,13 @@ const App = () => {
     }, 4000);
 
     function callback() {
-      setData(propertiesdata);
-      setProperty(propertiesdata[0]);
+      setproperties(PropertiesData);
+      setProperty(PropertiesData[0]);
       setIsLoading(false);
-      console.log(isLoading);
     }
 
     return () => {
       clearTimeout(timeOut);
-      console.log('cleanup');
     };
   }, []);
 
@@ -46,7 +42,7 @@ const App = () => {
       <Button
         handleClick={goToNextSlide}
         disabled={
-          !isLoading && property.index === data.length - 1 ? true : false
+          !isLoading && property.index === properties.length - 1 ? true : false
         }
         type="primary"
       >
@@ -63,16 +59,22 @@ const App = () => {
         {isLoading ? (
           <h4>Loading...</h4>
         ) : (
-          <div className={`${property.index} ? active: : deactive`}>
+          <div>
             <div
               className="cards-slider-wrapper"
               style={{
                 transform: `translateX(-${property.index *
-                  (100 / data.length)}%)`,
+                  (100 / properties.length)}%)`,
               }}
             >
-              {data.map((property, index) => {
-                return <Card property={property} key={property._id} />;
+              {properties.map((property_, index) => {
+                return (
+                  <Card
+                    property={property_}
+                    statePropertyIndex={property.index}
+                    key={property_._id}
+                  />
+                );
               })}
             </div>
           </div>
