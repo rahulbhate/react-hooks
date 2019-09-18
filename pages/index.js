@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import PropertiesData from '../src/PropertiesData';
+import sliderData from '../src/sliderImages'
 import '../css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import '../css/style.css';
 import Card from '../src/components/Card';
 import Button from '../src/components/Button';
+import ImageSlider from '../src/components/ImageSlider';
 
 const App = () => {
   const [properties, setproperties] = useState(null);
@@ -38,7 +40,8 @@ const App = () => {
   }, []);
 
   return (
-    <div className="container-fluid">
+    <>
+    <div className="container">
       <Button
         handleClick={goToNextSlide}
         disabled={
@@ -55,7 +58,7 @@ const App = () => {
       >
         <i class="fas fa-chevron-left fa-lg" />
       </Button>
-      <div>
+      <div style={{clear:'both'}}>
         {isLoading ? (
           <h4>Loading...</h4>
         ) : (
@@ -76,11 +79,20 @@ const App = () => {
                   />
                 );
               })}
+              
             </div>
+            
           </div>
         )}
+       
       </div>
     </div>
+    <div className="jumbotron">
+    <hr />
+    </div>
+   <ImageSlider options={sliderData} /> 
+  
+    </>
   );
 };
 export default App;

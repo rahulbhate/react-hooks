@@ -33,7 +33,10 @@ const Card = ({ property, statePropertyIndex }) => {
             {bathrooms}
           </li>
           <li>
-            <i class="fas fa-car fa-sm" />
+           
+              <i class="fas fa-car fa-sm" />
+          
+            
             {carSpaces}
           </li>
         </ul>
